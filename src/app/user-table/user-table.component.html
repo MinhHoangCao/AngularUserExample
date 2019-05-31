@@ -1,0 +1,20 @@
+<a routerLink="/loginPage">Login</a><br/><br/>
+
+<a routerLink="/usersDetail/0">Add new user</a>
+
+<div *ngIf="users">
+  <ul class="users">
+    <li *ngFor="let user of users">
+      <a routerLink="/usersDetail/{{user.id}}">
+        <span class="badge">{{user.id}}</span> {{user.name}}
+      </a>
+      <button class="delete" title="delete user"
+              (click)="delete(user)">x</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!users">
+  <h3 style="color: red">No user list found!!!</h3>
+</div>
+
